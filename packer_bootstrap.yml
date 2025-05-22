@@ -1,0 +1,33 @@
+---
+version: 1.0
+tasks:
+  - task: enableOpenSsh
+  - task: executeScript
+    inputs:
+      - frequency: once
+        type: powershell
+        runAs: admin
+        content: |-
+          $contentToAdd = @'
+          # ------------------------------
+          # Added by packer_bootstrap.yml
+          # ------------------------------
+          PasswordAuthentication no
+
+          # Enable SSH logs (available at %programdata%\ssh\logs)
+          # https://github.com/PowerShell/Win32-OpenSSH/wiki/Logging-Facilities
+          # https://github.com/PowerShell/Win32-OpenSSH/wiki/Troubleshooting-Steps
+          SyslogFacility LOCAL0
+          LogLevel DEBUG
+          # ------------------------------
+          '@
+
+          $fileName = "$env:ProgramData/ssh/sshd_config"
+          (Get-Content $fileName) |
+              Foreach-Object {
+                  if ($_ -match "Match Group administrators")
+                  {
+                      $contentToAdd
+                  }
+                  $_ # send the current line to output
+              } | Set-Content $fileName
