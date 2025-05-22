@@ -28,4 +28,5 @@ What options do we have to speed up the process?
 ## References
 
 https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html
+
 https://repost.aws/knowledge-center/ebs-snapshot-ec2-ami-creation-slow
