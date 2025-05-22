@@ -23,7 +23,8 @@ packer build --timestamp-ui maigl_win.pkr.hcl
 
 ## Help, please help
 
-What options do we have to speed up the process?
+What options do we have to speed up the process? This problem seems not to exist on 
+azure or openstack, where I did similar things.
 
 ## References
 
