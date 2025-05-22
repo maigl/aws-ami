@@ -18,6 +18,9 @@ packer init .
 packer build --timestamp-ui maigl_win.pkr.hcl
 ```
 
+![image](https://github.com/user-attachments/assets/17d6d86c-0abc-4e53-8cf8-a21f946900c1)
+
+
 ## Help, please help
 
 What options do we have to speed up the process?
